@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title} ?: 'Sistema de Gerenciamento de Funcionários'">Sistema de Gerenciamento de Funcionários</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3f0fa 0%, #f6f8fa 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+        }
+        .navbar {
+            background: #4fa3d1 !important;
+            box-shadow: 0 2px 8px rgba(79,163,209,0.08);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #fff !important;
+            letter-spacing: 1px;
+        }
+        .navbar-nav .nav-link {
+            color: #eaf6fb !important;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
+            color: #fff !important;
+        }
+        .table th {
+            background-color: #d1f2eb;
+            color: #218c74;
+            font-weight: 600;
+        }
+        .table-striped > tbody > tr:nth-of-type(odd) {
+            background-color: #f2fdfb;
+        }
+        .btn-action, .btn {
+            border-radius: 20px !important;
+            font-weight: 500;
+        }
+        .btn-primary, .btn-success, .btn-danger {
+            border: none;
+        }
+        .btn-primary {
+            background: #4fa3d1;
+        }
+        .btn-success {
+            background: #5ed18c;
+        }
+        .btn-danger {
+            background: #e57373;
+        }
+        .card {
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(79,163,209,0.07);
+            border: none;
+        }
+        .alert {
+            margin-top: 20px;
+            border-radius: 12px;
+            font-size: 1.05em;
+        }
+        .footer {
+            background: transparent;
+            color: #4fa3d1;
+            font-size: 0.98em;
+        }
+    </style>
+</head>
+<body>
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                Sistema de Funcionários
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/funcionarios">
+                            Funcionários
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/departamentos">
+                            Departamentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cargos">
+                            Cargos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="footer">
+    <hr/>
+    <footer class="footer text-center">
+        <p>&copy; 2025 - Sistema de Gerenciamento de Funcionários - Desenvolvimento Web com Spring Boot</p>
+    </footer>
+</div>
+
+<div th:fragment="mensagens" th:if="${mensagem}" class="alert" th:classappend="${tipoMensagem == 'success' ? 'alert-success' : 'alert-danger'}">
+    <span th:text="${mensagem}"></span>
+</div>
+</body>
+</html> 
